@@ -13,19 +13,17 @@
 ActiveRecord::Schema.define(version: 20170328191139) do
 
   create_table "drink_ingredients", force: :cascade do |t|
-    t.string "drink_id_string"
-    t.string "ingredient_id_string"
+    t.integer "drink_id"
+    t.integer "ingredient_id"
   end
 
   create_table "drinks", force: :cascade do |t|
     t.string "name"
-    t.string "id_string"
     t.text   "instructions"
     t.string "glass_type"
   end
 
   create_table "ingredients", force: :cascade do |t|
-    t.string "id_string"
     t.string "name"
   end
 
