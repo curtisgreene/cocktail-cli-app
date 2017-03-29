@@ -1,0 +1,3 @@
+module Adapters
+
+end

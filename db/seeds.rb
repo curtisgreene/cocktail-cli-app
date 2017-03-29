@@ -2,7 +2,7 @@ require 'rest-client'
 require 'json'
 require 'pry'
 
-all_drinks = RestClient.get("http://addb.absolutdrinks.com/drinks/?apikey=6d5cf1235dc142648d2e2cf1e45a09c3&start=1&pageSize=3637")
+all_drinks = RestClient.get("http://addb.absolutdrinks.com/drinks/?apikey=6d5cf1235dc142648d2e2cf1e45a09c3&start=3073&pageSize=3637")
 drink_hash = JSON.parse(all_drinks)
 
 drink_hash["result"].each do |drink|
