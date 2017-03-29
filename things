@@ -1,0 +1,4 @@
+
+find drinks by word in name
+ActiveRecord -->>
+ Drink.all.where("name like ?", "%#{QUERY}%")
