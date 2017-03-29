@@ -3,9 +3,9 @@ def welcome_message
 end
 
 def get_user_input
-  query = gets.strip
+  query = gets.strip.split.map(&:capitalize).join(' ')
 end
 
 def no_such_drink
-  puts "Sorry, please try a different drink!"
+  puts "Maybe you've had enough."
 end

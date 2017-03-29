@@ -6,7 +6,8 @@ user_input = get_user_input
 user_drink = Drink.find_by_name(user_input)
 if user_drink
 	user_drink.list_ingredients
-else
+	user_drink.give_instructions
+elsif
 		drink_data = Drink.fetch_drink_data(user_input) #returns JSON hash of one drink
 		args = {
 			name: drink_data["name"],
@@ -20,6 +21,9 @@ else
 			drink.ingredients << ingredient_instance
 		end# the hash of one drink requested based on URL above
 		drink.list_ingredients
+		drink.give_instructions
+else
+		no_such_drink
 end
 
 

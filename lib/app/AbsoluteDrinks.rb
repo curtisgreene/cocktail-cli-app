@@ -13,11 +13,4 @@ module Adapters::AbsolutDrinks
     drink_data = data["result"][0]
   end
 
-
-  # def create_drink_and_ingredient(drink_data)
-  #
-  #
-  #
-  # end
-
 end
