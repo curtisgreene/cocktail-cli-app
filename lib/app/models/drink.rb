@@ -1,6 +1,6 @@
 require 'pry'
 class Drink < ActiveRecord::Base
-  include Adapters::AbsolutDrinks
+  extend Adapters::AbsolutDrinks
 
   has_many :drink_ingredients
   has_many :ingredients, through: :drink_ingredients
@@ -20,10 +20,8 @@ class Drink < ActiveRecord::Base
   # end
 
   def list_ingredients
-    self.ingredients.each do |ingredient|
-      i = 1
-  		puts "#{i}. #{ingredient.name}"
-  		i += 1
+    self.ingredients.each_with_index do |ingredient, index|
+  		puts "#{index+1}. #{ingredient.name}"
   	end
   end
 

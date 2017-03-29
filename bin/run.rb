@@ -3,7 +3,7 @@ require_relative '../config/environment.rb'
 
 welcome_message
 user_input = get_user_input
-user_drink = Drink.find_by_name(name: user_input)
+user_drink = Drink.find_by_name(user_input)
 if user_drink
 	user_drink.list_ingredients
 else
