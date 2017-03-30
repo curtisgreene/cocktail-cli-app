@@ -1,19 +1,33 @@
+def fancy_shit
+  puts "
+      ___
+      )_(                                            _
+      | |                                           [_ ]
+    .-'-'-.       _                               .-'. '-.
+   /-::_..-|    _[_]_                            /:;/ _.-'|
+   )_     _(   /_   _|      [-]                  |:._   .-|
+   |;::    |   )_``'_(    .-'-'-.       (-)      |:._     |
+   |;::    |   |;:   |    :-...-:     .-'-'-.    |:._     |
+   |;::    |   |;:   |    |;:   |     |-...-|    |:._     |
+   |;::-.._|   |;:.._|    |;:.._|     |;:.._|    |:._     |
+   `-.._..-'   `-...-'    `-...-'     `-...-'    `-.____.-'"
+
+end
+
 def welcome_message
-  puts "Hello! Please enter 'd' for drink ingredients and 'q' to quit:"
+  puts "Hello! Welcome to The Cocktail Recipe Finder.\nI can show you recipes for your favorite cocktails"
+
 end
 
-def welcome_user_response
-	response = gets.strip.downcase
-end
-
-def drink_message
-	puts "Please enter a drink to show it's ingredients:"
+def instructions
+  puts "*" * 60
+  puts "Enter the name of a cocktail or 'q' to quit:"
 end
 
 def get_user_input
   query = gets.strip.split.map(&:capitalize).join(' ')
 end
 
-def no_such_drink
-  puts "Maybe you've had enough."
+def no_such_drink(user_input)
+  puts "\nOops..We can't find #{user_input} in our database. \nPlease try another cocktail."
 end

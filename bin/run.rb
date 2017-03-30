@@ -1,16 +1,18 @@
 require_relative '../config/environment.rb'
 require "pry"
 
-welcome_message
 
-until welcome_user_response == "q"
-	drink_message
-	user_input = get_user_input
-	user_drink = Drink.find_by_name(user_input)
-		if user_drink
+welcome_message
+fancy_shit
+instructions
+user_input = get_user_input
+
+until user_input == "Q"
+		if Drink.find_by_name(user_input)
+			user_drink = Drink.find_by_name(user_input)
 			user_drink.list_ingredients
 			user_drink.give_instructions
-		elsif
+		elsif Drink.fetch_drink_data(user_input)
 				drink_data = Drink.fetch_drink_data(user_input) #returns JSON hash of one drink
 				args = {
 					name: drink_data["name"],
@@ -33,11 +35,12 @@ until welcome_user_response == "q"
 				drink.list_ingredients
 				drink.give_instructions
 		else
-			puts "Not a valid entry. Please try again."
+				no_such_drink(user_input)
 		end
-		welcome_message
+		instructions
+		user_input = get_user_input
 end
 
-no_such_drink
+
 
 # api_request.create_drink_and_ingredient(user_input)
