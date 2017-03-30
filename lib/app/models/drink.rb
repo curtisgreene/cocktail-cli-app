@@ -14,11 +14,10 @@ class Drink < ActiveRecord::Base
         puts "#{index+1}. #{drink_ingredient.portion} #{drink_ingredient.ingredient.name}"
       end
   	end
-  end
-
-  def give_instructions # prints the instructions
     puts "\nInstructions: #{self.instructions}\n\n"
   end
+
+
 
   #
   # def self.does_exist?(user_input) #
