@@ -7,7 +7,7 @@ module Adapters::AbsolutDrinks
 
   def fetch_drink_data(user_input)
     # manipulates user input into necessary format
-    query =  user_input.downcase.gsub(" ", "-")
+    query = user_input.downcase.gsub(" ", "-")
     response = RestClient.get("#{BASE_URL}#{query}#{API_KEY}")
     data = JSON.parse(response)
     drink_data = data["result"][0]

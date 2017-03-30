@@ -6,8 +6,12 @@ class Drink < ActiveRecord::Base
   has_many :ingredients, through: :drink_ingredients
 
   def list_ingredients # lists ingredients in a numbered list
-    self.ingredients.each_with_index do |ingredient, index|
-  		puts "#{index+1}. #{ingredient.name}"
+    self.drink_ingredients.each_with_index do |drink_ingredient, index|
+      if drink_ingredient.portion == ""
+  		    puts "#{index+1}. #{drink_ingredient.ingredient.name}"
+      else
+        puts "#{index+1}. #{drink_ingredient.portion} #{drink_ingredient.ingredient.name}"
+      end
   	end
   end
 

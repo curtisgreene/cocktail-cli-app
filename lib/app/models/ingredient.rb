@@ -17,5 +17,3 @@ class Ingredient < ActiveRecord::Base
   	Ingredient.all.collect {|ingredient| ingredient.name}
   end
 end
-
-

@@ -1,9 +1,9 @@
 require_relative '../config/environment.rb'
-
+require "pry"
 
 welcome_message
 
-until welcome_user_response == "q"	
+until welcome_user_response == "q"
 	drink_message
 	user_input = get_user_input
 	user_drink = Drink.find_by_name(user_input)
@@ -21,12 +21,19 @@ until welcome_user_response == "q"
 				drink = Drink.create(args)
 				ingredients.each do |ingredient|
 					ingredient_instance = Ingredient.find_or_create_by(name: ingredient["text"][/\[.*\]/][1..-2])
+					ingredient_portion = ingredient["text"].gsub(/\[.*\]/, "").strip
 					drink.ingredients << ingredient_instance
+
+					new_drink_ingredient_row = DrinkIngredient.find_by(drink_id: drink.id, ingredient_id: ingredient_instance.id)
+					new_drink_ingredient_row.portion = ingredient_portion.downcase
+					new_drink_ingredient_row.save
+
+
 				end# the hash of one drink requested based on URL above
 				drink.list_ingredients
 				drink.give_instructions
 		else
-			puts "Not a valid entry"
+			puts "Not a valid entry. Please try again."
 		end
 		welcome_message
 end
