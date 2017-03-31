@@ -34,7 +34,10 @@ def welcome_message
 end
 
 def drink_or_ingredient
-  puts "Enter 'd' to search by Drink name, 'i' to search by Ingredient or 'q' to quit:"
+ puts "\n"
+ puts "🍸  " * 26
+ puts "\n"
+ puts "Enter 'd' to search by Drink name, 'i' to search by Ingredient or 'q' to quit:"
 end
 
 def get_user_input
@@ -42,12 +45,10 @@ def get_user_input
 end
 
 def drink_instructions
-  puts "*" * 60
   puts "Enter the name of a cocktail:"
 end
 
 def ingredient_instructions
-  puts "*" * 60
   puts "Enter the name of an ingredient:"
 end
 
