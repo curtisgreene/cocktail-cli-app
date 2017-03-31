@@ -1,6 +1,6 @@
 require_relative '../../config/environment.rb'
 
-def fancy_art
+def fancy_art # courtesy of Chris.com/ascii and http://patorjk.com/software/taag
   puts "
  .o88b.  .d88b.   .o88b. db   dD d888888b  .d8b.  d888888b db
 d8P  Y8 .8P  Y8. d8P  Y8 88 ,8P' `~~88~~' d8' `8b   `88'   88
@@ -50,10 +50,6 @@ def ingredient_instructions
   puts "*" * 60
   puts "Enter the name of an ingredient:"
 end
-
-# def get_user_input
-#   query = gets.strip.split.map(&:capitalize).join(' ')
-# end
 
 def no_such_item(user_input)
   puts "\nOops..We can't find #{user_input} in our database. \nPlease try another search."

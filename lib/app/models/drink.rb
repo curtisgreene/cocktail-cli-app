@@ -5,7 +5,7 @@ class Drink < ActiveRecord::Base
   has_many :drink_ingredients
   has_many :ingredients, through: :drink_ingredients
 
-  def list_ingredients # lists ingredients in a numbered list
+  def list_ingredients_and_instructions # lists ingredients and instructions in a numbered list
     puts "\n #{self.name} Recipe:\n"
     self.drink_ingredients.each_with_index do |drink_ingredient, index|
       if drink_ingredient.portion == ""
@@ -16,12 +16,4 @@ class Drink < ActiveRecord::Base
   	end
     puts "\nInstructions: #{self.instructions}\n\n"
   end
-
-
-
-  #
-  # def self.does_exist?(user_input) #
-  # 	self.all.collect{|drink| drink.name}.include?(user_input)
-  # end
-
 end
