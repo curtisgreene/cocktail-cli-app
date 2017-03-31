@@ -1,8 +1,8 @@
 require_relative '../../config/environment.rb'
 
-def fancy_shit
+def fancy_art
   puts "
-.o88b.  .d88b.   .o88b. db   dD d888888b  .d8b.  d888888b db
+ .o88b.  .d88b.   .o88b. db   dD d888888b  .d8b.  d888888b db
 d8P  Y8 .8P  Y8. d8P  Y8 88 ,8P' `~~88~~' d8' `8b   `88'   88
 8P      88    88 8P      88,8P      88    88ooo88    88    88
 8b      88    88 8b      88`8b      88    88~~~88    88    88
@@ -31,18 +31,30 @@ end
 
 def welcome_message
   puts "Hello! Welcome to The Cocktail Recipe Finder.\nI can show you recipes for your favorite cocktails\n\n"
-
 end
 
-def instructions
-  puts "*" * 60
-  puts "Enter the name of a cocktail or 'q' to quit:"
+def drink_or_ingredient
+  puts "Enter 'd' to search by Drink name, 'i' to search by Ingredient or 'q' to quit:"
 end
 
 def get_user_input
   query = gets.strip.split.map(&:capitalize).join(' ')
 end
 
-def no_such_drink(user_input)
-  puts "\nOops..We can't find #{user_input} in our database. \nPlease try another cocktail."
+def drink_instructions
+  puts "*" * 60
+  puts "Enter the name of a cocktail:"
+end
+
+def ingredient_instructions
+  puts "*" * 60
+  puts "Enter the name of an ingredient:"
+end
+
+# def get_user_input
+#   query = gets.strip.split.map(&:capitalize).join(' ')
+# end
+
+def no_such_item(user_input)
+  puts "\nOops..We can't find #{user_input} in our database. \nPlease try another search."
 end
