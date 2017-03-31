@@ -47,7 +47,7 @@ module Adapters::AbsolutDrinks
     query = user_input.downcase.gsub(" ", "-")
     response = RestClient.get("#{BASE_URL}drinks/with/#{query}#{API_KEY}")   #serching by ingredient
     data = JSON.parse(response)
-    drink_data = data["result"][0..4]
+    drink_data = data["result"][0..2]
   end
 
   def ingredient_api_request(user_input)

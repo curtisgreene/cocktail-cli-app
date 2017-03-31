@@ -1,25 +1,39 @@
-# Module One Final Project Guidelines
+# Cocktail Finder CLI App
 
-Congratulations, you're at the end of module one! You've worked crazy hard to get here and have learned a ton.
 
-For your final project, we'll be building a Command Line database application.
+## Intro
+We have built a CLI app that communicates with an API created by Absolut Vodka. With our app, a user can enter the name of a cocktail and receive back a list of ingredients and the instructions to make the cocktail.
 
-## Project Requirements
+Also, a user can input an ingredient and see a collection of cocktails that include that ingredient. Because there are some ingredients that are in hundreds or even thousands of ingredients, we have throttled these responses to 3 different drinks.
 
-1. Provide a CLI
-2. The CLI must provide access to data from a SQLITE3 database using ActiveRecord.
-3. You should have at minimum three models including one join model. This means you must have a many-to-many relationship.
-3. You should seed your database with data from an API that you hit using a separate adapter class.
-4. The data provided must go at least one level deep, generally by showing the user a list of available data and then being able to drill down into a specific item. i.e If I'm building a library, I should have an option to view all of the books using `Book.all` and then an option to find a book by the id number.
-5. The CLI application can not be a Music CLI application as that is too similar to the other OO Ruby final project. Also please refrain from using Kickstarter as that was used for the scraping 'code along'. Look at the example domains below for inspiration.
-6. Use good OO design patterns. You should be creating and accessing objects - not hashes.
+Our hope is that we can inspire users to imbibe in responsible and sophisticated ways. Artisanal cocktails have never been more popular, so we have empowered users to learn more about those drinks they have heard about but never knew about.
 
-## Instructions
+## Database
+Our database has three tables; drinks, ingredients, and the join table drinks_ingredients. We are using the powerful ActiveRecord pattern to construct our associations based on the classes we defined.
 
-1. Create a new repository on GitHub for your application, ie: `name-cli-app`.
-2. When you create the CLI app for your assessment, add the spec.md file from this repo to the root directory of the project, commit it to Git and push it up to GitHub.
-3. Build your application. Make sure to commit early and commit often. Commit messages should be meaningful (clearly describe what you're doing in the commit) and accurate (there should be nothing in the commit that doesn't match the description in the commit message). Good rule of thumb is to commit every 3-7 mins of actual coding time. Most of your commits should have under 15 lines of code and a 2 line commit is perfectly acceptable.
-4. Make sure to create a good README.md with a short description, install instructions, a contributors guide and a link to the license for your code.
-5. Make sure your project checks off each of the above requirements.
-6. Prepare a video demo (narration helps!) describing how a user would interact with your working gem.
-7. *OPTIONAL, BUT RECOMMENDED*: Write a blog post about the project and process.
+#### Drinks Table
+* Name
+* Glass type
+* Instructions
+
+#### Ingredients Table
+* Name
+
+#### Join Table: Drink_Ingredients
+* drink_id
+* ingredient_id
+* Portion
+
+
+The portion data *must* be stored on the join table. We are only concerned with a particular measurement of an ingredient when it intersects with a particular drink recipe.
+
+## Description
+When a user inputs the name of cocktail, our program will first search the database for a drink that matches that name, regardless of case. If it finds a match, then it will return the relevant data back to the user.
+
+If that request to the database returns nil, then that name is sent to the API. We are reaching into the API with precision to find only that drinks data. We pull that data down and organize it in our database. Then the program runs the same methods to display the relevant data back to the user.
+
+If the drink name isn't found in our database OR the API, we return an error message back to the user and ask for another request.
+
+The process for returning recipes based on ingredients is similar, with one key difference. We reach directly to the API for ingredients, because we don't want to limit the results to only those cocktails that already exist in our database.
+
+Again, if the user's query doesn't match anything in the API, we display an error message. This is same abstracted error message with use with failed drinks.
