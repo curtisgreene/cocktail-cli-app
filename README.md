@@ -61,6 +61,8 @@ Again, if the user's query doesn't match anything in the API, we display an erro
 
 If you wish to contribute to this application, please clone this repo and submit a pull requests with explanations for any changes or recommendations.  
 
+## [Tutorial](http://recordit.co/ELqAhbOWqs) 
+
 ## Disclaimer
 
 Please enjoy responsibly.
