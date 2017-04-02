@@ -2,7 +2,7 @@
 
 
 ## Intro
-This application allows uses to discover new cocktails to make and enjoy! We utilize an API, the [Absolut Drinks Database](https://addb.absolutdrinks.com/docs/), which is created and maintained by the [Absolut Vodka company](http://www.absolut.com/).
+This application allows users to discover new cocktails to make and enjoy! We utilize an API, the [Absolut Drinks Database](https://addb.absolutdrinks.com/docs/), which is created and maintained by the [Absolut Vodka company](http://www.absolut.com/).
 
 With our application, a user can enter the name of a cocktail and receive back a list of ingredients and the instructions to make the cocktail.
 
